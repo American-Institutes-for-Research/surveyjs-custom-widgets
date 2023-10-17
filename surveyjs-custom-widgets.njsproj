@@ -1,0 +1,115 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{a6aa262e-16a8-4ee7-9b27-67382edf19f3}</ProjectGuid>
+    <ProjectHome>.</ProjectHome>
+    <ProjectView>ShowAllFiles</ProjectView>
+    <StartupFile>webpack.config.js</StartupFile>
+    <WorkingDirectory>.</WorkingDirectory>
+    <OutputPath>.</OutputPath>
+    <ProjectTypeGuids>{3AF33F2E-1136-4D97-BBB7-1795711AC8B8};{349c5851-65df-11da-9384-00065b846f21};{9092AA53-FB77-4645-B42D-1CCCA6BD08BD}</ProjectTypeGuids>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">17.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)' == 'Debug'" />
+  <PropertyGroup Condition="'$(Configuration)' == 'Release'" />
+  <ItemGroup>
+    <Content Include="package-lock.json" />
+    <Content Include="package.json" />
+    <Content Include="CHANGELOG.md" />
+    <Content Include="README.md" />
+    <Content Include="src\trumbowyg.js">
+      <SubType>Code</SubType>
+    </Content>
+    <Content Include="webpack.config.js" />
+    <Content Include="src\targetREADME.md" />
+    <Content Include="src\bootstrap-slider.js" />
+    <Content Include="src\bootstrapdatepicker.js" />
+    <Content Include="src\ck-editor.js" />
+    <Content Include="src\easy-autocomplete.js" />
+    <Content Include="src\emotionsratings.js" />
+    <Content Include="src\icheck.js" />
+    <Content Include="src\inputmask.js" />
+    <Content Include="src\jquery-bar-rating.js" />
+    <Content Include="src\jquery-ui-datepicker.js" />
+    <Content Include="src\microphone.js" />
+    <Content Include="src\nouislider.js" />
+    <Content Include="src\pretty-checkbox.js" />
+    <Content Include="src\select2-tagbox.js" />
+    <Content Include="src\select2.js" />
+    <Content Include="src\sortablejs.js" />
+    <Content Include="src\surveyjs-widgets.js" />
+    <Content Include="testcafe\helper.js" />
+    <Content Include="examples\angular\index.html" />
+    <Content Include="examples\angular\config.js" />
+    <Content Include="examples\angular\index.js" />
+    <Content Include="examples\jquery\index.html" />
+    <Content Include="examples\jquery\index.js" />
+    <Content Include="examples\knockout\index.html" />
+    <Content Include="examples\knockout\index.js" />
+    <Content Include="examples\react\index.html" />
+    <Content Include="examples\react\index.js" />
+    <Content Include="examples\vue\index.html" />
+    <Content Include="examples\vue\index.js" />
+    <Content Include="src\images\barrating.svg" />
+    <Content Include="src\images\datepicker.svg" />
+    <Content Include="src\images\editor.svg" />
+    <Content Include="src\images\microphone.svg" />
+    <Content Include="src\images\nouislider.svg" />
+    <Content Include="src\images\sortablejs.svg" />
+    <Content Include="src\images\tagbox.svg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="examples" />
+    <Folder Include="examples\angular" />
+    <Folder Include="examples\jquery" />
+    <Folder Include="examples\knockout" />
+    <Folder Include="examples\react" />
+    <Folder Include="examples\vue" />
+    <Folder Include="src" />
+    <Folder Include="src\images" />
+    <Folder Include="testcafe" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.Common.targets" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <Import Project="$(VSToolsPath)\Node.js Tools\Microsoft.NodejsToolsV2.targets" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>False</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>0</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost:48022/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>True</UseCustomServer>
+          <CustomServerUrl>http://localhost:1337</CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}" User="">
+        <WebProjectProperties>
+          <StartPageUrl>
+          </StartPageUrl>
+          <StartAction>CurrentPage</StartAction>
+          <AspNetDebugging>True</AspNetDebugging>
+          <SilverlightDebugging>False</SilverlightDebugging>
+          <NativeDebugging>False</NativeDebugging>
+          <SQLDebugging>False</SQLDebugging>
+          <ExternalProgram>
+          </ExternalProgram>
+          <StartExternalURL>
+          </StartExternalURL>
+          <StartCmdLineArguments>
+          </StartCmdLineArguments>
+          <StartWorkingDirectory>
+          </StartWorkingDirectory>
+          <EnableENC>False</EnableENC>
+          <AlwaysStartWebServerOnDebug>False</AlwaysStartWebServerOnDebug>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+</Project>
