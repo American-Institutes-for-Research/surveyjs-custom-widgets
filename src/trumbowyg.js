@@ -56,7 +56,8 @@ function init(Survey, $) {
                     ['removeformat'],
                     ['mathml'],
                     ['fullscreen']
-                ]
+                ],
+                autogrow: true
             });
 
             if (question.isReadOnly) {
