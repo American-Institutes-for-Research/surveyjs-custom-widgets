@@ -20,6 +20,7 @@
     <Content Include="package.json" />
     <Content Include="CHANGELOG.md" />
     <Content Include="README.md" />
+    <Content Include="src\mathlive.js" />
     <Content Include="src\trumbowyg.js">
       <SubType>Code</SubType>
     </Content>

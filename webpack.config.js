@@ -38,7 +38,8 @@ var widgets = [
     "bootstrap-slider",
     "microphone",
     "emotionsratings",
-    "trumbowyg"
+    "trumbowyg",
+    "mathlive"
 ];
 
 var dependencies = {
@@ -54,8 +55,9 @@ var dependencies = {
     "bootstrap-slider": "^10.0.0",
     recordrtc: "^5.4.6",
     "emotion-ratings": "^2.0.1",
+    "mathlive": "^0.95.5",
     "trumbowyg": "^2.27.3",
-    "mathjax": "2.7.5"
+    "mathjax": "^2.7.5"
 };
 
 var entry = {};
@@ -147,7 +149,13 @@ module.exports = function (options) {
                 commonjs2: "bootstrap-slider",
                 commonjs: "bootstrap-slider",
                 amd: "bootstrap-slider"
-            }
+            },
+            mathlivejs: {
+                root: "mathlive",
+                commonjs2: "mathlive",
+                commonjs: "mathlive",
+                amd: "mathlive"
+            },
         },
         optimization: {
             minimize: options.buildType === "prod"
