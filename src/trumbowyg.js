@@ -54,7 +54,7 @@ function init(Survey, $) {
                     ['unorderedList', 'orderedList'],
                     ['horizontalRule'],
                     ['removeformat'],
-                    ['mathml'],
+                    ['mathlive'],
                     ['fullscreen']
                 ],
                 autogrow: true

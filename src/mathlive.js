@@ -59,14 +59,14 @@ function init(Survey, $) {
 
                 //$editor.html(question.value);
                 editor.setValue(question.value);
-                propEditor.value = question.value;
+                propEditor.setPropertyValue("math", question.value);
             };
 
             editor.addEventListener("change", function (event) {
                 debugger;
                 isValueChanging = true;
-                question.value = editor.getValue();
-                propEditor.value = editor.getValue();
+                question.value = event.target.getValue();
+                propEditor.setPropertyValue("math", event.target.value);
                 isValueChanging = false;
             });
 
