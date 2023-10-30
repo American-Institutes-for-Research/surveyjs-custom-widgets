@@ -1,54 +1,42 @@
-import mathlive from 'mathlivejs';
+const CUSTOM_TYPE = "math";
 
-function init(Survey, $) {
+function init(Survey) {
     const iconId = "icon-editor";
     const componentName = "math";
-    Survey.SvgRegistry && Survey.SvgRegistry.registerIconFromSvg(iconId, require('svg-inline-loader!./images/editor.svg'), ""); 
-    $ = $ || window.$;
+    Survey.SvgRegistry && Survey.SvgRegistry.registerIconFromSvg(iconId, require('svg-inline-loader!./images/math.svg'), "");
+
     var widget = {
         name: componentName,
         title: "Math Formula",
         iconName: iconId,
         widgetIsLoaded: function () {
-           // debugger;
             return true;//typeof MathfieldElement. != "undefined";
         },
         isFit: function (question) {
-            // debugger;
             return question.getType() === componentName;
-            //return (question.getType() == "text" && question.inputType == "math")
         },
         htmlTemplate:
-            '<math-field id="mf" style="display: block"></math-field>',
-            activatedByChanged: function (activatedBy) {
-            //debugger;
+          '<math-field id="mf-" style="display: block" class="sd-input"></math-field>',
+        activatedByChanged: function (activatedBy) {
             Survey.Serializer.addClass(componentName, [], null, "empty");
             let registerQuestion = Survey.ElementFactory.Instance.registerCustomQuestion;
             if (!!registerQuestion) registerQuestion(componentName);
-            Survey.Serializer.addProperty(componentName, {
-                name: "math",
-                type: "text",
-                default: null,
-                category: "general",
-            });
+
+            //Survey.Serializer.addProperty(componentName, {
+            //    name: componentName,
+            //    category: "general"
+            //});
         },
         afterRender: function (question, el) {
-            debugger;
             var name = question.inputId;
-            //$(el).remove();
 
-            var propEditor = Survey.Serializer.findProperty("math", "math");
-            var editor = el;// document.getElementById('mf');
+            //var property = Survey.Serializer.findProperty("math", "math");
+            var editor = el;
 
-            //$editor.name = name;
+            editor.id = editor.id + question.id;
 
-            //var editor = new MathLive.MathfieldElement();
             editor.setValue(question.value);
             editor.disabled = question.isReadOnly;
-
-            //$editor.html(mfe);
-
-/*            $editor.html(question.value);*/
 
             var isValueChanging = false;
             var updateValueHandler = function () {
@@ -57,35 +45,27 @@ function init(Survey, $) {
                     return;
                 }
 
-                //$editor.html(question.value);
                 editor.setValue(question.value);
-                propEditor.setPropertyValue("math", question.value);
             };
 
             editor.addEventListener("change", function (event) {
-                debugger;
                 isValueChanging = true;
                 question.value = event.target.getValue();
-                propEditor.setPropertyValue("math", event.target.value);
                 isValueChanging = false;
             });
 
             question.valueChangedCallback = updateValueHandler;
             question.readOnlyChangedCallback = function () {
                 if (question.isReadOnly) {
-                    //$editor.disable();
-                    editor.disabled = true; 
+                    editor.disabled = true;
                 } else {
-                    //$editor.enable();
                     editor.disabled = false;
                 }
             };
             updateValueHandler();
         },
         willUnmount: function (question, el) {
-            /*debugger;*/
             question.readOnlyChangedCallback = null;
-            //$(el).trumbowyg('destroy');
             el.remove();
         },
         pdfRender: function (survey, options) {
@@ -94,16 +74,16 @@ function init(Survey, $) {
                 loc.text = options.question.value || options.question.defaultValue;
                 options.question["locHtml"] = loc;
                 if (
-                    options.question.renderAs === "standard" ||
-                    options.question.renderAs === "image"
+                  options.question.renderAs === "standard" ||
+                  options.question.renderAs === "image"
                 ) {
                     options.question["renderAs"] = options.question.renderAs;
                 } else options.question["renderAs"] = "auto";
                 const flatHtml = options.repository.create(
-                    survey,
-                    options.question,
-                    options.controller,
-                    "html"
+                  survey,
+                  options.question,
+                  options.controller,
+                  "html"
                 );
                 return new Promise(function (resolve) {
                     flatHtml.generateFlats(options.point).then(function (htmlBricks) {
@@ -116,10 +96,21 @@ function init(Survey, $) {
     };
 
     Survey.CustomWidgetCollection.Instance.addCustomWidget(widget, "customtype");
+
+    SurveyCreatorCore.PropertyGridEditorCollection.register({
+         fit: function (prop) {
+             return prop.type == "math";
+         },
+         getJSON: function (obj, prop, options) {
+             return {
+                 type: "math",
+             };
+         }
+    });
 }
 
 if (typeof Survey !== "undefined") {
-    init(Survey, window.$);
+    init(Survey);
 }
 
 export default init;
