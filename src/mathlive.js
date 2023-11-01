@@ -1,7 +1,7 @@
 const CUSTOM_TYPE = "math";
 
 function init(Survey) {
-    const iconId = "icon-editor";
+    const iconId = "icon-math";
     const componentName = "math";
     Survey.SvgRegistry && Survey.SvgRegistry.registerIconFromSvg(iconId, require('svg-inline-loader!./images/math.svg'), "");
 
