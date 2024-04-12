@@ -1,0 +1,3 @@
+C:\GitHub\RASP\src\SurveyJS\obj\Release\surveyjs-custom-widgets.njsproj.AssemblyReference.cache
+C:\GitHub\RASP\src\SurveyJS\obj\Release\surveyjs-custom-widgets.njsproj.CoreCompileInputs.cache
+C:\GitHub\RASP\src\SurveyJS\bin\Microsoft.NodejsTools.WebRole.dll
