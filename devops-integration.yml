@@ -78,7 +78,7 @@ steps:
       npm run release -- --release-as $(SurveyJSVersion)
     displayName: 'npm run release specific version'
 #####################################################
-  
+
   - script: |
       npm run build
     displayName: "build"

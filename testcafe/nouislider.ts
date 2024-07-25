@@ -25,7 +25,7 @@ var json = {
         "step": 0.5,
         "defaultValue": 3,
         "rangeMin": 1,
-        "rangeMax": 5        
+        "rangeMax": 5
        }
       ]
      }

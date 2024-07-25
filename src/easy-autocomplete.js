@@ -74,7 +74,7 @@ function init(Survey, $) {
           },
           onChooseEvent: function () {
             var selectedData = $el.getSelectedItemData();
-            if(!!selectedData && typeof selectedData === "object" 
+            if(!!selectedData && typeof selectedData === "object"
               && !!question.choicesByUrl && !!question.choicesByUrl.valueName) {
               selectedData = selectedData[question.choicesByUrl.valueName];
             }

@@ -87,7 +87,7 @@ function init(Survey) {
         el.style.marginLeft = "60px";
       }
       var slider = noUiSlider.create(el, {
-        start: question.rangeMin <= question.value && question.value <= question.rangeMax ? 
+        start: question.rangeMin <= question.value && question.value <= question.rangeMax ?
                     question.value : (question.rangeMin + question.rangeMax) / 2,
         connect: [true, false],
         step: question.step,
@@ -133,7 +133,7 @@ function init(Survey) {
         }
         slider.updateOptions(
           { step: question.step,
-            start: question.rangeMin <= question.value && question.value <= question.rangeMax ? 
+            start: question.rangeMin <= question.value && question.value <= question.rangeMax ?
                             getStart(question.value) : getStart((question.rangeMin + question.rangeMax) / 2),
             range: {
               min: question.rangeMin,
@@ -191,7 +191,7 @@ function init(Survey) {
       }
       question.readOnlyChangedCallback = null;
       question.valueChangedCallback = null;
-      
+
       if (!question.updateSliderProperties) return;
       question.unRegisterFunctionOnPropertiesValueChanged(
         ["pipsValues", "step", "rangeMin", "rangeMax", "pipsMode", "pipsDensity"],

@@ -1,4 +1,4 @@
-## Widgets 
+## Widgets
 [![Build.Node.js CI](https://github.com/surveyjs/custom-widgets/actions/workflows/build.node.js.yml/badge.svg)](https://github.com/surveyjs/custom-widgets/actions/workflows/build.node.js.yml)
 
 [![Software License](https://img.shields.io/badge/license-MIT-brightgreen.svg?style=flat)](LICENSE)
@@ -33,7 +33,7 @@
 
 ## Getting started
 
-es5 examples: https://surveyjs.io/Examples/Library/?id=custom-widget-select2-tagbox  
+es5 examples: https://surveyjs.io/Examples/Library/?id=custom-widget-select2-tagbox
 es modules examples: https://stackblitz.com/edit/surveyjs-widgets-react
 
 Install the library using es5.

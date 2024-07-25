@@ -42,7 +42,7 @@ function init(Survey) {
       var log = function(msg) {
         //console.log(msg);
       };
-  
+
       //////////  RecordRTC logic
 
       var successCallback = function(stream) {

@@ -89,4 +89,3 @@ export const initCreator = ClientFunction((json, creatorOptions) => {
 export const getData = ClientFunction(() => {
   return survey.data;
 });
-

@@ -43,7 +43,7 @@ function init() {
             .querySelector('#surveyResult')
             .textContent = "Result JSON:\n" + JSON.stringify(result.data, null, 3);
     });
-        
+
     ReactDOM.render(<Survey.Survey model={model} />, document.getElementById("surveyElement"));
 
 }

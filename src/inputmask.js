@@ -115,14 +115,14 @@ function init(Survey) {
         options.groupSeparator = rootWidget.numericGroupSeparator;
         options.radixPoint = rootWidget.numericRadixPoint;
         options.autoGroup = rootWidget.numericAutoGroup;
-        options.placeholder = rootWidget.numericPlaceholder;        
+        options.placeholder = rootWidget.numericPlaceholder;
       }
       if (surveyElement.inputMask === "currency") {
         options.digits = surveyElement.numericDigits || rootWidget.numericDigits;
         options.digitsOptional = rootWidget.numericDigitsOptional;
         options.prefix = surveyElement.prefix || "";
         options.suffix = surveyElement.suffix || "";
-        options.placeholder = rootWidget.numericPlaceholder;        
+        options.placeholder = rootWidget.numericPlaceholder;
       }
       // if (surveyElement.inputMask == "datetime") {
       //   mask = surveyElement.inputFormat;
@@ -147,7 +147,7 @@ function init(Survey) {
         customWidgetData.isNeedRender = true;
       };
 
-      var pushValueHandler = function () {        
+      var pushValueHandler = function () {
         if (!el.inputmask) return;
         if (el.inputmask.isComplete()) {
           surveyElement.value = options.autoUnmask
@@ -168,7 +168,7 @@ function init(Survey) {
       surveyElement.valueChangedCallback = updateHandler;
       updateHandler();
     },
-    afterRender: function (question, el) {      
+    afterRender: function (question, el) {
       if (question.getType() != "multipletext") {
         var input = el.querySelector("input") || el;
         this.applyInputMask(question, input);
