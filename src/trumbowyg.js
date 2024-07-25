@@ -42,6 +42,13 @@ function init(Survey, $) {
             });
 
             $editor.trumbowyg({
+                btnsDef: {
+                    // Create a new dropdown
+                    image: {
+                        dropdown: ['insertImage', 'base64'],
+                        ico: 'insertImage'
+                    }
+                },
                 btns: [
                     ['viewHTML'],
                     ['undo', 'redo'], // Only supported in Blink browsers
@@ -49,7 +56,7 @@ function init(Survey, $) {
                     ['strong', 'em', 'del'],
                     ['superscript', 'subscript'],
                     ['link'],
-                    ['insertImage'],
+                    ['image'],
                     ['justifyLeft', 'justifyCenter', 'justifyRight', 'justifyFull'],
                     ['unorderedList', 'orderedList'],
                     ['horizontalRule'],
