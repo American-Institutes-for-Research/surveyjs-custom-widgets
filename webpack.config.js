@@ -43,21 +43,32 @@ var widgets = [
 ];
 
 var dependencies = {
-    select2: "^4.0.4",
-    icheck: "^1.0.2",
-    "jquery-ui": "^1.12.1",
-    sortablejs: "^1.6.1",
-    nouislider: "^14.6.3",
-    inputmask: "^5.0.3",
-    "jquery-bar-rating": "^1.2.2",
-    "easy-autocomplete": "^1.3.5",
-    "pretty-checkbox": "^3.0.3",
-    "bootstrap-slider": "^10.0.0",
-    recordrtc: "^5.4.6",
-    "emotion-ratings": "^2.0.1",
-    "mathlive": "^0.95.5",
-    "trumbowyg": "^2.27.3",
-    "mathjax": "^2.7.5"
+  select2: "^4.0.4",
+  icheck: "^1.0.2",
+  "jquery-ui": "^1.12.1",
+  sortablejs: "^1.6.1",
+  nouislider: "^14.6.3",
+  inputmask: "^5.0.3",
+  "jquery-bar-rating": "^1.2.2",
+  "pretty-checkbox": "^3.0.3",
+  "bootstrap-slider": "^10.0.0",
+  recordrtc: "^5.4.6",
+  "emotion-ratings": "^2.0.1",
+  select2: "^4.0.4",
+  icheck: "^1.0.2",
+  "jquery-ui": "^1.12.1",
+  sortablejs: "^1.6.1",
+  nouislider: "^14.6.3",
+  inputmask: "^5.0.3",
+  "jquery-bar-rating": "^1.2.2",
+  "easy-autocomplete": "^1.3.5",
+  "pretty-checkbox": "^3.0.3",
+  "bootstrap-slider": "^10.0.0",
+  recordrtc: "^5.4.6",
+  "emotion-ratings": "^2.0.1",
+  "mathlive": "^0.95.5",
+  "trumbowyg": "^2.27.3",
+  "mathjax": "^2.7.5"
 };
 
 var entry = {};
@@ -65,31 +76,33 @@ var entry = {};
 module.exports = function (options) {
     var packagePath = `./${outputFolder}`;
 
-    var targetPackageJson = {
-        name: `surveyjs-widgets`,
-        version: packageJson.version,
-        description: "Custom widgets for the SurveyJS library",
-        keywords: [
-            "Survey",
-            "JavaScript",
-            "Bootstrap",
-            "Library",
-            "SurveyJS",
-            "Widgets"
-        ],
-        homepage: "https://surveyjs.io/",
-        license: "MIT",
-        files: [],
-        main: main + ".js",
-        repository: {
-            type: "git",
-            url: "https://github.com/surveyjs/widgets.git"
-        },
-        dependencies: {
-            jquery: "^3.2.1"
-        },
-        peerDependencies: {}
-    };
+  var targetPackageJson = {
+    name: `surveyjs-widgets`,
+    version: packageJson.version,
+    description: "Custom widgets for the SurveyJS library",
+    keywords: [
+      "Survey",
+      "JavaScript",
+      "Bootstrap",
+      "Library",
+      "SurveyJS",
+      "Widgets"
+    ],
+    homepage: "https://surveyjs.io/",
+    license: "MIT",
+    files: [],
+    main: main + ".js",
+    repository: {
+      type: "git",
+      url: "https://github.com/surveyjs/widgets.git"
+    },
+    dependencies: {
+      jquery: "^3.2.1"
+    },
+    peerDependencies: {
+      "easy-autocomplete": "^1.3.5"
+    }
+  };
 
     widgets.forEach(function (widget) {
         if (widget !== main) {

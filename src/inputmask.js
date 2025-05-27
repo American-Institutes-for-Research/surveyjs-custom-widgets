@@ -1,6 +1,31 @@
 import Inputmask from "inputmask";
 
 function init(Survey) {
+  const updateTextItemPropInfo = function (propJSON) {
+    const name = propJSON.name;
+    propJSON.onGetValue = (obj) => {
+      return !!obj.editor ? obj.editor[name] : obj[name];
+    };
+    propJSON.onSetValue = (obj, val) => {
+      if(!!obj.editor) {
+        obj.editor[name] = val;
+      } else {
+        obj[name] = val;
+      }
+    }    
+  }
+  const updateColumnPropInfo = function (propJSON) {
+    const name = propJSON.name;
+    propJSON.visibleIf = (obj) => {
+      return obj.cellType === "text";
+    };
+    propJSON.onGetValue = (obj) => {
+      return obj.templateQuestion[name];
+    };
+    propJSON.onSetValue = (obj, val) => {
+      obj.templateQuestion[name] = val;
+    }    
+  }
   var widget = {
     name: "maskedit",
     numericGroupSeparator: ",",
@@ -12,6 +37,7 @@ function init(Survey) {
     autoUnmask: true,
     clearIncomplete: true,
     showMaskOnHover: true,
+    unmaskAsNumber: false,    
     widgetIsLoaded: function () {
       return typeof Inputmask != "undefined";
     },
@@ -27,23 +53,33 @@ function init(Survey) {
       if (Survey.Serializer.findProperty("text", "inputMask")) return;
       var properties = [
         {
-          name: "autoUnmask:boolean",
+          name: "autoUnmask",
+          type: "boolean",
           category: "general",
+          showMode: "form",
           default: true,
         },
         {
-          name: "clearIncomplete:boolean",
+          name: "clearIncomplete",
+          type: "boolean",
           category: "general",
+          showMode: "form",
           default: true,
         },
         {
-          name: "showMaskOnHover:boolean",
+          name: "showMaskOnHover",
+          type: "boolean",
           category: "general",
+          showMode: "form",
           default: true,
         },
-        { name: "inputFormat", category: "general" },
+        { 
+          name: "inputFormat", 
+          showMode: "form",
+          category: "general" },
         {
           name: "inputMask",
+          showMode: "form",
           category: "general",
           default: "none",
           choices: [
@@ -62,7 +98,18 @@ function init(Survey) {
           visible: false,
         },
         {
+          name: "numericGroupSeparator",
+          category: "general",
+          default: ",",
+          visible: false,
+        },
+        {
           name: "options",
+          category: "general",
+          visible: false,
+        },
+        {
+          name: "unmaskAsNumber:boolean",
           category: "general",
           visible: false,
         },
@@ -78,11 +125,17 @@ function init(Survey) {
         },
       ];
       Survey.Serializer.addProperties("text", properties);
-      Survey.Serializer.addProperties(
-        "matrixdropdowncolumn",
-        properties
-      );
+      properties.forEach(prop => {
+        if(prop.visible !== false) {
+          updateTextItemPropInfo(prop);
+        }
+      });
       Survey.Serializer.addProperties("multipletextitem", properties);
+      properties.forEach(prop => {
+        if(prop.visible !== false) {
+          updateColumnPropInfo(prop);
+        }
+      });
     },
     applyInputMask: function (surveyElement, el) {
       var rootWidget = this;
@@ -105,6 +158,9 @@ function init(Survey) {
       options.showMaskOnHover = typeof surveyElement.showMaskOnHover !== "undefined"
         ? surveyElement.showMaskOnHover
         : rootWidget.showMaskOnHover;
+      options.unmaskAsNumber = typeof surveyElement.unmaskAsNumber !== "undefined"
+          ? surveyElement.unmaskAsNumber
+          : rootWidget.unmaskAsNumber;
       if (surveyElement.inputMask !== "none") {
         options.inputFormat = surveyElement.inputFormat;
       }
@@ -112,7 +168,7 @@ function init(Survey) {
         surveyElement.inputMask === "currency" ||
         surveyElement.inputMask === "decimal"
       ) {
-        options.groupSeparator = rootWidget.numericGroupSeparator;
+        options.groupSeparator = surveyElement.numericGroupSeparator || rootWidget.numericGroupSeparator;
         options.radixPoint = rootWidget.numericRadixPoint;
         options.autoGroup = rootWidget.numericAutoGroup;
         options.placeholder = rootWidget.numericPlaceholder;        
