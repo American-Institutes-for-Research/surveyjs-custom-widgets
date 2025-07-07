@@ -29,12 +29,12 @@ function init(Survey) {
         },
         afterRender: function (question, el) {
             var name = question.inputId;
-
+            debugger;
             //var property = Survey.Serializer.findProperty("math", "math");
-            var editor = el;
+            var editor = el.querySelector("math-field");
 
             editor.id = editor.id + question.id;
-
+            
             editor.setValue(question.value);
             editor.disabled = question.isReadOnly;
 

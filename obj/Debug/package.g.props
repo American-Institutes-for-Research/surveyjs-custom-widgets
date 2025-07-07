@@ -1,0 +1,51 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project>
+  <PropertyGroup>
+    <PackageJsonName Condition="$(PackageJsonName) == ''">surveyjs-widgets</PackageJsonName>
+    <PackageJsonVersion Condition="$(PackageJsonVersion) == ''">2.2.3</PackageJsonVersion>
+    <PackageJsonScriptsStart Condition="$(PackageJsonScriptsStart) == ''">npm run build &amp;&amp; live-server</PackageJsonScriptsStart>
+    <PackageJsonScriptsWatch Condition="$(PackageJsonScriptsWatch) == ''">webpack --env buildType=dev --watch</PackageJsonScriptsWatch>
+    <PackageJsonScriptsPrebuild Condition="$(PackageJsonScriptsPrebuild) == ''">webpack --env buildType=dev</PackageJsonScriptsPrebuild>
+    <PackageJsonScriptsBuild Condition="$(PackageJsonScriptsBuild) == ''">webpack --env buildType=prod</PackageJsonScriptsBuild>
+    <PackageJsonScriptsRelease Condition="$(PackageJsonScriptsRelease) == ''">standard-version --message "Release: %s [azurepipelines skip]"</PackageJsonScriptsRelease>
+    <PackageJsonScriptsTestcafe Condition="$(PackageJsonScriptsTestcafe) == ''">testcafe chrome --app "http-server" testcafe/ --selector-timeout 1500</PackageJsonScriptsTestcafe>
+    <PackageJsonScriptsTestcafeCi Condition="$(PackageJsonScriptsTestcafeCi) == ''">testcafe chrome:headless --app "http-server" testcafe/ --selector-timeout 1500 </PackageJsonScriptsTestcafeCi>
+    <PackageJsonScriptsTestcafeFile Condition="$(PackageJsonScriptsTestcafeFile) == ''">testcafe chrome --app "http-server" testCafe/tagbox.ts --selector-timeout 1500 --reporter minimal</PackageJsonScriptsTestcafeFile>
+    <PackageJsonRepositoryType Condition="$(PackageJsonRepositoryType) == ''">git</PackageJsonRepositoryType>
+    <PackageJsonRepositoryUrl Condition="$(PackageJsonRepositoryUrl) == ''">https://github.com/surveyjs/custom-widgets.git</PackageJsonRepositoryUrl>
+    <PackageJsonPrivate Condition="$(PackageJsonPrivate) == ''">true</PackageJsonPrivate>
+    <PackageJsonDevdependenciesBabelCore Condition="$(PackageJsonDevdependenciesBabelCore) == ''">^7.16.12</PackageJsonDevdependenciesBabelCore>
+    <PackageJsonDevdependenciesBootstrapSlider Condition="$(PackageJsonDevdependenciesBootstrapSlider) == ''">^10.6.2</PackageJsonDevdependenciesBootstrapSlider>
+    <PackageJsonDevdependenciesCleanWebpackPlugin Condition="$(PackageJsonDevdependenciesCleanWebpackPlugin) == ''">^0.1.17</PackageJsonDevdependenciesCleanWebpackPlugin>
+    <PackageJsonDevdependenciesColors Condition="$(PackageJsonDevdependenciesColors) == ''">1.4.0</PackageJsonDevdependenciesColors>
+    <PackageJsonDevdependenciesConcurrently Condition="$(PackageJsonDevdependenciesConcurrently) == ''">^6.2.1</PackageJsonDevdependenciesConcurrently>
+    <PackageJsonDevdependenciesCopyWebpackPlugin Condition="$(PackageJsonDevdependenciesCopyWebpackPlugin) == ''">^11.0.0</PackageJsonDevdependenciesCopyWebpackPlugin>
+    <PackageJsonDevdependenciesEasyAutocomplete Condition="$(PackageJsonDevdependenciesEasyAutocomplete) == ''">^1.3.5</PackageJsonDevdependenciesEasyAutocomplete>
+    <PackageJsonDevdependenciesFriendlyErrorsWebpackPlugin Condition="$(PackageJsonDevdependenciesFriendlyErrorsWebpackPlugin) == ''">^1.6.1</PackageJsonDevdependenciesFriendlyErrorsWebpackPlugin>
+    <PackageJsonDevdependenciesGeneratePackageJsonWebpackPlugin Condition="$(PackageJsonDevdependenciesGeneratePackageJsonWebpackPlugin) == ''">^2.6.0</PackageJsonDevdependenciesGeneratePackageJsonWebpackPlugin>
+    <PackageJsonDevdependenciesHttpServer Condition="$(PackageJsonDevdependenciesHttpServer) == ''">^13.0.2</PackageJsonDevdependenciesHttpServer>
+    <PackageJsonDevdependenciesIcheck Condition="$(PackageJsonDevdependenciesIcheck) == ''">^1.0.2</PackageJsonDevdependenciesIcheck>
+    <PackageJsonDevdependenciesInputmask Condition="$(PackageJsonDevdependenciesInputmask) == ''">~5.0.3</PackageJsonDevdependenciesInputmask>
+    <PackageJsonDevdependenciesJquery Condition="$(PackageJsonDevdependenciesJquery) == ''">^3.5.0</PackageJsonDevdependenciesJquery>
+    <PackageJsonDevdependenciesJqueryBarRating Condition="$(PackageJsonDevdependenciesJqueryBarRating) == ''">^1.2.2</PackageJsonDevdependenciesJqueryBarRating>
+    <PackageJsonDevdependenciesJqueryUi Condition="$(PackageJsonDevdependenciesJqueryUi) == ''">^1.13.2</PackageJsonDevdependenciesJqueryUi>
+    <PackageJsonDevdependenciesLiveServer Condition="$(PackageJsonDevdependenciesLiveServer) == ''">^1.2.0</PackageJsonDevdependenciesLiveServer>
+    <PackageJsonDevdependenciesNouislider Condition="$(PackageJsonDevdependenciesNouislider) == ''">latest</PackageJsonDevdependenciesNouislider>
+    <PackageJsonDevdependenciesPrettyCheckbox Condition="$(PackageJsonDevdependenciesPrettyCheckbox) == ''">^3.0.3</PackageJsonDevdependenciesPrettyCheckbox>
+    <PackageJsonDevdependenciesRecordrtc Condition="$(PackageJsonDevdependenciesRecordrtc) == ''">^5.5.8</PackageJsonDevdependenciesRecordrtc>
+    <PackageJsonDevdependenciesSelect2 Condition="$(PackageJsonDevdependenciesSelect2) == ''">^4.0.8</PackageJsonDevdependenciesSelect2>
+    <PackageJsonDevdependenciesSortablejs Condition="$(PackageJsonDevdependenciesSortablejs) == ''">^1.9.0</PackageJsonDevdependenciesSortablejs>
+    <PackageJsonDevdependenciesStandardVersion Condition="$(PackageJsonDevdependenciesStandardVersion) == ''">^9.5.0</PackageJsonDevdependenciesStandardVersion>
+    <PackageJsonDevdependenciesSurveyAngular Condition="$(PackageJsonDevdependenciesSurveyAngular) == ''">^1.9.46</PackageJsonDevdependenciesSurveyAngular>
+    <PackageJsonDevdependenciesSurveyJquery Condition="$(PackageJsonDevdependenciesSurveyJquery) == ''">^1.9.46</PackageJsonDevdependenciesSurveyJquery>
+    <PackageJsonDevdependenciesSurveyKnockout Condition="$(PackageJsonDevdependenciesSurveyKnockout) == ''">^1.9.46</PackageJsonDevdependenciesSurveyKnockout>
+    <PackageJsonDevdependenciesSurveyReact Condition="$(PackageJsonDevdependenciesSurveyReact) == ''">^1.9.46</PackageJsonDevdependenciesSurveyReact>
+    <PackageJsonDevdependenciesSurveyVue Condition="$(PackageJsonDevdependenciesSurveyVue) == ''">^1.9.46</PackageJsonDevdependenciesSurveyVue>
+    <PackageJsonDevdependenciesSvgInlineLoader Condition="$(PackageJsonDevdependenciesSvgInlineLoader) == ''">^0.8.2</PackageJsonDevdependenciesSvgInlineLoader>
+    <PackageJsonDevdependenciesTestcafe Condition="$(PackageJsonDevdependenciesTestcafe) == ''">1.16.1</PackageJsonDevdependenciesTestcafe>
+    <PackageJsonDevdependenciesTextLoader Condition="$(PackageJsonDevdependenciesTextLoader) == ''">0.0.1</PackageJsonDevdependenciesTextLoader>
+    <PackageJsonDevdependenciesVirtualModuleWebpackPlugin Condition="$(PackageJsonDevdependenciesVirtualModuleWebpackPlugin) == ''">^0.3.0</PackageJsonDevdependenciesVirtualModuleWebpackPlugin>
+    <PackageJsonDevdependenciesWebpack Condition="$(PackageJsonDevdependenciesWebpack) == ''">^5.74.0</PackageJsonDevdependenciesWebpack>
+    <PackageJsonDevdependenciesWebpackCli Condition="$(PackageJsonDevdependenciesWebpackCli) == ''">^4.9.2</PackageJsonDevdependenciesWebpackCli>
+  </PropertyGroup>
+</Project>

@@ -23,5 +23,3 @@ Gemfile.lock
 /Startup.cs
 /project.lock.json
 /hosting.ini
-/bin
-/obj/Debug
