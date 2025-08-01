@@ -32,14 +32,14 @@ function init(Survey, $) {
 
             var $editor = $(el);
 
-            MathJax.Hub.Config({
-                tex2jax: {
-                    inlineMath: [
-                        ['$', '$'],
-                        ['\\(', '\\)']
-                    ]
-                }
-            });
+            //MathJax.Hub.Config({
+            //    tex2jax: {
+            //        inlineMath: [
+            //            ['$', '$'],
+            //            ['\\(', '\\)']
+            //        ]
+            //    }
+            //});
 
             $editor.trumbowyg({
                 btnsDef: {
@@ -62,6 +62,7 @@ function init(Survey, $) {
                     ['horizontalRule'],
                     ['removeformat'],
                     ['mathlive'],
+                    /*['mathml'],*/
                     ['fullscreen']
                 ],
                 autogrow: true
